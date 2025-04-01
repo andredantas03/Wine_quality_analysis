@@ -1,0 +1,10 @@
+ model {
+    for (i in 1:length(y)) {
+        y[i] ~ dbin(p[i],10)
+        logit(p[i]) = b[1]*fixedacidity[i] + b[2]*volatileacidity[i] + b[3]*color[i] + b[4]*residualsugar[i] +
+                      b[5]*chlorides[i] + b[6]*freesulfurdioxide[i] + b[7]*ph[i] +b[8]*sulphates[i] + b[9]*alcohol[i] 
+    }
+    for (j in 1:9) {
+        b[j] ~ dnorm(0.0, 1.0/25.0) 
+            }
+        } 
